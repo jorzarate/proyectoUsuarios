@@ -1,7 +1,7 @@
 # proyectoUsuarios
 
-Proyecto CRUD Usuarios
+Proyecto CRUD de Usuarios
 
-HTML
-Bootstrap
+HTML<br>
+Bootstrap<br>
 Firebase
