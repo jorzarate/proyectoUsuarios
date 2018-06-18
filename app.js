@@ -29,3 +29,20 @@ function guardar() {
       console.error("Error adding document: ", error);
     });
 }
+
+//Leer Usuarios
+var tabla = document.getElementById('tabla');
+db.collection("users").onSnapshot((querySnapshot) => {
+
+    tabla.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data().first}`);
+        tabla.innerHTML += `
+            <tr>
+                <th scope="row">${doc.id}</th>
+                <td>${doc.data().first}</td>
+                <td>${doc.data().last}</td>
+                <td>${doc.data().born}</td>
+            </tr>`;
+    });
+});
