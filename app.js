@@ -7,15 +7,25 @@ firebase.initializeApp({
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 
-db.collection("users")
-  .add({
-    first: "Carlos",
-    last: "Sanchez",
-    born: 1982
-  })
-  .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-    console.error("Error adding document: ", error);
-  });
+//Agregar usuarios
+function guardar() {
+  var nombre = document.getElementById("nombre").value;
+  var apellido = document.getElementById("apellido").value;
+  var fecha = document.getElementById("fecha").value;
+
+  db.collection("users")
+    .add({
+      first: nombre,
+      last: apellido,
+      born: fecha
+    })
+    .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+      document.getElementById("nombre").value = '';
+      document.getElementById("apellido").value = '';
+      document.getElementById("fecha").value = '';
+    })
+    .catch(function(error) {
+      console.error("Error adding document: ", error);
+    });
+}
